@@ -6,7 +6,7 @@ import React from 'react'
 
 const App = () => {
   return (
-    <div className='bg-stone-900 grid py-4 min-h-screen'>
+    <div className='min-h-screen flex items-center justify-center bg-gradient-to-r'>
       <ToDo/>
     </div>
   )
