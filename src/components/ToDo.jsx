@@ -62,7 +62,7 @@ const ToDo = () => {
     className="flex-1 bg-transparent outline-none text-sm placeholder:text-gray-500"
   />
 
-  <button onClick={add} className="  ml-auto text-white text-xl px-4 py-1.5 rounded-full">
+  <button onClick={add} className="  ml-auto text-white text-xs px-4 py-1.5 rounded-full">
     Add
   </button>
 </div>
@@ -83,19 +83,7 @@ const ToDo = () => {
         </div>
       </div>
 
-      {/* RIGHT SIDE - EXTRA CARD */}
-      <div className="bg-white w-full lg:w-1/3 rounded-3xl shadow-lg p-6 h-fit">
-        <h2 className="text-xl font-semibold mb-4">Quick Notes</h2>
-        <p className="text-gray-700 text-sm">
-          Bu alana hatırlatmalar, kısa notlar, hedefler veya takvim gibi içerikler
-          ekleyebilirsin. Örneğin:
-        </p>
-        <ul className="list-disc list-inside mt-3 text-sm text-gray-600 space-y-1">
-          <li>Bugün: React form validation</li>
-          <li>Yarın: Firebase auth ekle</li>
-          <li>Cuma: Deploy işlemleri</li>
-        </ul>
-      </div>
+    
     </div>
   );
 };
