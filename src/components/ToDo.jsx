@@ -1,96 +1,103 @@
-import React ,{useEffect, useRef, useState} from 'react'
-import todo from '../assets/todo.png'
-import Todoitems from './Todoitems'
+import React, { useEffect, useRef, useState } from 'react';
+import todo from '../assets/todo.png';
+import Todoitems from './Todoitems';
 
 const ToDo = () => {
+  const [todoList, setTodoList] = useState([]);
+  const inputRef = useRef();
 
-const [todoList,setTodoList] = useState([]);
-
-const inputRef = useRef();
-
-const add = () =>{
-
+  const add = () => {
     const inputText = inputRef.current.value.trim();
-
-    if(inputText === ""){
-      return null;
-    }
+    if (inputText === '') return;
 
     const newTodo = {
       id: Date.now(),
       text: inputText,
       isComplete: false,
-    }
-    setTodoList((prev)=>[...prev, newTodo] );
-    inputRef.current.value = "";
-    // console.log(inputText);
-}
+    };
 
-const deleteTodo = (id)=> {
-  setTodoList((prvTodos)=>{
+    setTodoList((prev) => [...prev, newTodo]);
+    inputRef.current.value = '';
+  };
 
-    return prvTodos.filter((todo) => todo.id !== id);
-  })
-}
+  const deleteTodo = (id) => {
+    setTodoList((prev) => prev.filter((todo) => todo.id !== id));
+  };
 
-const toggle = (id) =>{
-  setTodoList((prevTodos) =>{
-    return prevTodos.map((todo) =>{
-      if(todo.id === id){
-        return {...todo, isComplete: !todo.isComplete};
-    }
+  const toggle = (id) => {
+    setTodoList((prev) =>
+      prev.map((todo) =>
+        todo.id === id ? { ...todo, isComplete: !todo.isComplete } : todo
+      )
+    );
+  };
 
-    return todo;
-
-  })
-})
-}
-
-useEffect(()=>{
-  console.log(todoList);
-},[todoList])
-
-
-
-
+  useEffect(() => {
+    console.log(todoList);
+  }, [todoList]);
 
   return (
-    <div className='bg-white place-self-center w-11/12 max-w-md flex flex-col p-7 min-h-[550px] rounded-xl'>
-      
-{/* ---title--- */}
+    <div className="flex flex-col lg:flex-row gap-6 w-full max-w-6xl mx-auto mt-10 px-4">
+     
+      <div className="bg-white w-full lg:w-2/3 rounded-3xl shadow-lg p-8">
+     
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-xl font-semibold flex flex-wrap gap-1">
+  You’ve got{' '}
+  <span className="text-blue-400 min-w-[2ch] text-center">{todoList.length}</span>
+  task today
+</h1>
 
-<div className='flex items-center justify-center mt-7 gap-2'>
-  <img className='w-8' src={todo} alt="" />
-  <h2 className='text-[35px] font-semibold'>To-Do List</h2>
+         
+        </div>
+
+{/* Input + Add Button */}
+<div className="flex items-center bg-gray-100 rounded-full px-4 py-2 mb-6">
+  <img src={todo} alt="todo icon" className="w-5 h-5 mr-2" />
+
+  <input
+    ref={inputRef}
+    type="text"
+    placeholder="Add new task"
+    className="flex-1 bg-transparent outline-none text-sm placeholder:text-gray-500"
+  />
+
+  <button onClick={add} className="  ml-auto text-white text-xl px-4 py-1.5 rounded-full">
+    Add
+  </button>
 </div>
 
 
-{/* ---input box--- */}
+        {/* Task List */}
+        <div className="space-y-4">
+          {todoList.map((item, index) => (
+            <Todoitems
+              key={index}
+              text={item.text}
+              id={item.id}
+              isComplete={item.isComplete}
+              deleteTodo={deleteTodo}
+              toggle={toggle}
+            />
+          ))}
+        </div>
+      </div>
 
-    <div className='flex items-center my-7 bg-gray-200 rounded-full'
-    >
-        <input ref={inputRef} className='bg-transparent border-0 outline-none flex-1 h-14 pl-6 pr-2 placeholder:text-slate-600' type='text' placeholder='Add new task'/>
-        <button onClick={add} className='border-none rounded-full bg- w-32 h-14 text-white text-lg font-medium cursor-pointer'>ADD +</button>
+      {/* RIGHT SIDE - EXTRA CARD */}
+      <div className="bg-white w-full lg:w-1/3 rounded-3xl shadow-lg p-6 h-fit">
+        <h2 className="text-xl font-semibold mb-4">Quick Notes</h2>
+        <p className="text-gray-700 text-sm">
+          Bu alana hatırlatmalar, kısa notlar, hedefler veya takvim gibi içerikler
+          ekleyebilirsin. Örneğin:
+        </p>
+        <ul className="list-disc list-inside mt-3 text-sm text-gray-600 space-y-1">
+          <li>Bugün: React form validation</li>
+          <li>Yarın: Firebase auth ekle</li>
+          <li>Cuma: Deploy işlemleri</li>
+        </ul>
+      </div>
     </div>
+  );
+};
 
-
-{/* ----todo list----     */}
-
-    <div>
-
-    {todoList.map((item, index)=>{
-      return <Todoitems key={index}  text={item.text} id={item.id} isComplete={item.isComplete} deleteTodo={deleteTodo} toggle={toggle}/>
-
-    })}
-
-
-    
-        
-    </div>
-
-
-    </div>
-  )
-}
-
-export default ToDo
+export default ToDo;

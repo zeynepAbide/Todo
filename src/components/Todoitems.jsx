@@ -5,14 +5,25 @@ import trash from '../assets/trash.png'
 
 const Todoitems = ({text, id, isComplete, deleteTodo, toggle}) => {
   return (
-    <div className='flex flex-row items-center my-3 gap-2'>
-    <div onClick={()=>{toggle(id) }} className='flex items-center cursor-pointer'>
-        <img src={isComplete ? checked : unchecked} alt="" className='w-7'/>
-        <p className={`text-slate-700 ml-4 text-[17px] decoration-slate-950 ${isComplete ? "line-through" : ""}`}>
-            {text}</p>
+    <div className="flex items-center justify-between bg-gray-100 px-4 py-2 rounded-xl">
+  {/* Sol kısım: checkbox + metin */}
+  <div className="flex items-center gap-3 flex-1">
+    <div onClick={() => toggle(id)} className="cursor-pointer">
+      <img
+        src={isComplete ? checked : unchecked}
+        alt="checkbox"
+        className="w-5 h-5"
+      />
     </div>
+    <p className={`text-sm ${isComplete ? 'line-through text-gray-400' : 'text-gray-800'}`}>
+      {text}
+    </p>
+  </div>
 
-    <img onClick= {() => {deleteTodo(id)} } src={trash} alt="" className='w-3.5 cursor-pointer '/>
+  {/* Sağ kısım: çöp kutusu */}
+  <div onClick={() => deleteTodo(id)} className="cursor-pointer ml-4">
+    <img src={trash} alt="delete" className="w-5 h-5" />
+  </div>
 </div>
 
   )

@@ -1,10 +1,12 @@
 module.exports = {
   content: [
     "./App.{js,jsx,ts,tsx}",
-    "./src/**/*.{html,js}",
+    "./src/**/*.{html,js,ts,tsx,jsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      
+    },
   },
   plugins: [],
 }
