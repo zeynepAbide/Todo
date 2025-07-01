@@ -6,7 +6,7 @@ import trash from '../assets/trash.png'
 const Todoitems = ({text, id, isComplete, deleteTodo, toggle}) => {
   return (
     <div className="flex items-center justify-between bg-gray-100 px-4 py-2 rounded-xl">
-  {/* Sol kısım: checkbox + metin */}
+  {/* checkbox + metin */}
   <div className="flex items-center gap-3 flex-1">
     <div onClick={() => toggle(id)} className="cursor-pointer">
       <img
@@ -20,7 +20,7 @@ const Todoitems = ({text, id, isComplete, deleteTodo, toggle}) => {
     </p>
   </div>
 
-  {/* Sağ kısım: çöp kutusu */}
+  {/*trash */}
   <div onClick={() => deleteTodo(id)} className="cursor-pointer ml-4">
     <img src={trash} alt="delete" className="w-5 h-5" />
   </div>
