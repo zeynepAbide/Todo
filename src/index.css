@@ -8,11 +8,10 @@
 #root {
   width: 100%;
   max-width: 1480px;
-  height: 95vh;
-  background-color: #ffffff;
   padding: 20px;
   text-align: center;
   border-radius: 8px;
+  height: 100vh;
 }
 
 a {
@@ -27,11 +26,10 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  /* height: 100vh; */
   background: linear-gradient(to top, #3f8d9d, #5db2ea); /* Koyu mavi #3f8d9d -> Açık mavi #5db2ea */
+  /* padding: 2rem; */
 }
 
 /* Sol panel düzeni */
@@ -48,6 +46,10 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+.general-title-h1 {
+  @apply text-2xl font-bold mb-4;
 }
 
 button {

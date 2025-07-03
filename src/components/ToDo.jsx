@@ -39,13 +39,13 @@ const ToDo = () => {
   }, [todoList]);
 
   return (
-    <div className="flex flex-col lg:flex-row gap-6 w-full max-w-6xl mx-auto px-4">
+    <div className="flex flex-col lg:flex-row gap-6 w-full max-w-6xl mx-auto px-4 bg-white p-5 rounded-2xl h-[90vh] ">
       {/* Main Todo */}
-      <div className="bg-white w-full lg:w-2/3 rounded-3xl shadow-lg p-8 h-96">
+      <div className="bg-white w-full lg:w-2/3 rounded-3xl shadow-lg p-8 overflow-hidden">
         <div className="flex justify-between items-center mb-6">
-        <h1 className="text-xl font-semibold mb-0 whitespace-nowrap">
-  You've got <span className="text-blue-400">{todoList.length}</span> tasks today
-</h1>
+        <h1 className="general-title-h1">
+          You've got <span className="text-blue-400">{todoList.length}</span> tasks today
+        </h1>
         </div>
         {/* Input + Add Button */}
         <div className="flex items-center bg-gray-100 rounded-full px-4 py-2 mb-6">
@@ -65,18 +65,18 @@ const ToDo = () => {
           </button>
         </div>
         {/* Task List */}
-        <div className="space-y-4">
-          {todoList.map((item, index) => (
-            <Todoitem
-              key={index}
-              text={item.text}
-              id={item.id}
-              isComplete={item.isComplete}
-              deleteTodo={deleteTodo}
-              toggle={toggle}
-            />
-          ))}
-        </div>
+         <div className="space-y-4 overflow-y-auto h-[60vh]">
+            {todoList.map((item, index) => (
+              <Todoitem
+                key={index}
+                text={item.text}
+                id={item.id}
+                isComplete={item.isComplete}
+                deleteTodo={deleteTodo}
+                toggle={toggle}
+              />
+            ))}
+          </div>
       </div>
       {/* Completed Tasks */}
       <TaskList todoList={todoList} showCompleted={true} title="Completed Tasks" />

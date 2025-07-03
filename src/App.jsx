@@ -7,7 +7,7 @@ import React from 'react'
 
 const App = () => {
   return (
-    <div className='min-h-screen flex justify-center pt-10 bg-gradient-to-r'>
+    <div className='flex justify-center bg-gradient-to-r'>
       <ToDo/>
       
     </div>
