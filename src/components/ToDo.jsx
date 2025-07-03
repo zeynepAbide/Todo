@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import todo from '../assets/todo.png';
 import Todoitem from './Todoitem';
-import CompletedTasks from './CompletedTasks';
-import UncompletedTasks from './UncompletedTasks';
+import TaskList from './TaskList';
 
 const ToDo = () => {
   const [todoList, setTodoList] = useState([]);
@@ -80,9 +79,9 @@ const ToDo = () => {
         </div>
       </div>
       {/* Completed Tasks */}
-      <CompletedTasks todoList={todoList} />
+      <TaskList todoList={todoList} showCompleted={true} title="Completed Tasks" />
       {/* Uncompleted Tasks  */}
-      <UncompletedTasks todoList={todoList} />
+      <TaskList todoList={todoList} showCompleted={false} title="Uncompleted Tasks" />
     </div>
   );
 };
