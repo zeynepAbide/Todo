@@ -1,4 +1,3 @@
-
 import './App.css'
 import './index.css';
 
@@ -9,10 +8,8 @@ import React from 'react'
 
 const App = () => {
   return (
-    <div className='min-h-screen flex items-center justify-center bg-gradient-to-r'>
+    <div className='min-h-screen flex justify-center pt-10 bg-gradient-to-r'>
       <ToDo/>
-   
-      
     </div>
   )
 }

@@ -3,7 +3,7 @@ import checked from '../assets/checked.png'
 import unchecked from '../assets/unchecked.png'
 import trash from '../assets/trash.png'
 
-const Todoitems = ({text, id, isComplete, deleteTodo, toggle}) => {
+const Todoitem = ({text, id, isComplete, deleteTodo, toggle}) => {
   return (
     <div className="flex items-center justify-between bg-gray-100 px-4 py-2 rounded-xl">
   {/* checkbox + metin */}
@@ -29,4 +29,4 @@ const Todoitems = ({text, id, isComplete, deleteTodo, toggle}) => {
   )
 }
 
-export default Todoitems
+export default Todoitem
