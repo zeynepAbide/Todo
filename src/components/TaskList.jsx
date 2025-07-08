@@ -4,7 +4,7 @@ import unchecked from '../assets/unchecked.png';
 const TaskList = ({ todoList, showCompleted, title }) => {
   const filteredTasks = todoList.filter(todo => showCompleted ? todo.isComplete : !todo.isComplete);
   return (
-    <div className={showCompleted ? "bg-green-50 w-80 lg:w-1/4 rounded-3xl shadow-lg p-8 flex flex-col gap-2 overflow-y-auto" : "bg-red-100 w-80 lg:w-1/4q rounded-3xl shadow-lg p-8 flex flex-col gap-2 overflow-y-auto"}>
+    <div className={showCompleted ? "bg-green-50 w-full lg:w-1/4 rounded-3xl shadow-lg p-8 flex flex-col gap-2 overflow-y-auto" : "bg-red-100 w-80 lg:w-1/4q rounded-3xl shadow-lg p-8 flex flex-col gap-2 overflow-y-auto"}>
       <h2 className={showCompleted ? "text-lg font-semibold text-green-700 mb-4" : "text-lg font-semibold text-yellow-700 mb-4"}>
         {title}
       </h2>
