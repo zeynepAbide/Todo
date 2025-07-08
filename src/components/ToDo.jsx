@@ -8,7 +8,7 @@ const ToDo = () => {
   const inputRef = useRef();
   const [inputText, setInputText] = useState('');
 
-  // Add Task
+  // task ekleme
   const add = () => {
     const inputTextTrimmed = inputText.trim(); 
     if (inputTextTrimmed === '') return;
