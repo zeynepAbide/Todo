@@ -1,17 +1,17 @@
+/* @tailwind base; 
+@tailwind utilities;  */
+
 @import "tailwindcss";
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #252323;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+#root {
+  width: 100%;
+  max-width: 1480px;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  height: 100vh;
 }
 
 a {
@@ -19,17 +19,28 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #212acf;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: #090909;
+  /* min-height: 100vh; */
+  /* height: 100vh; */
+  background: linear-gradient(to top, #3f8d9d, #5db2ea); /* Koyu mavi #3f8d9d -> Açık mavi #5db2ea */
+  /* padding: 2rem; */
+}
+
+/* Sol panel düzeni */
+.left-panel {
+  background-color: #2777d8; /* Mavi renk */
+  width: 30%; /* Sol panelin genişliği */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 90vh; /* Yükseklik */
+  overflow-y: auto;
 }
 
 h1 {
@@ -37,8 +48,12 @@ h1 {
   line-height: 1.1;
 }
 
+.general-title-h1 {
+  @apply text-2xl font-bold mb-4;
+}
+
 button {
-  border-radius: 8px;
+  border-radius: 100px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
@@ -48,9 +63,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
-  border-color: #1870ec;
+  border-color: #ffffff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -58,7 +75,7 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: #090909;
     background-color: #ffffff;
   }
   a:hover {
